@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/styleprof.css">
+    <title>Document</title>
+</head>
+<body>
+  <div id="feed">
+    <nav>
+      <div class="logo">Pinterest</div>
+      <div class="navr">
+        <a href="/profile"><div>Profile</div></a>
+        <a href="/logout"><div>Logout</div></a>
+      </div>
+    </nav>
+      <div class="posts">
+          <% posts.forEach(function(post){ %>
+            <div class="post">    
+            <div class="feedcard">
+              <img src="/images/uploads/<%= post.image %>" alt="Image" class="card-media" />
+            </div>
+            <div class="card-details">
+              <h2 class="title"><%= post.posttext %></h2>
+              <h2 class="user">@<%= post.user.username %></h2>
+              
+            </div>
+          </div>   
+         <% }) %>
+      </div>
+  </div>
+  
+</body>
+</html>

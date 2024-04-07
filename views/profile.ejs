@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/styleprof.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="logo">Pinterest</div>
+  <div id="algn">
+    <div id="card">
+        <div id="lower-bg">
+          <div class="profile"><img src="https://imgs.search.brave.com/H0DbvUUYwmyhaSKoDdaPTFfArJRyqas6HKd5kvG2pMM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dC5icmFuZGZldGNo/LmlvL2lkR1AwUzFK/amovaWRaOU45LTRq/ZS5zdmc_dXBkYXRl/ZD0xNjY4NTE2MDQ0/MTky.svg" alt=""></div>
+          <div class="text">
+            <p class="name"><%= user.fullName %></p>
+            <p class="name">@<%= user.username %></p>
+            <p class="title"><%= user.posts.length %> Posts</p>
+          </div>
+          <div id="icons">
+            <a href="#" class="ico"><img width="48" height="48" src="https://img.icons8.com/color/48/gmail-new.png" alt="gmail-new"/></a>
+            <a href="#" class="ico">
+              <img width="48" height="48" src="https://img.icons8.com/fluency/48/github.png" alt="github"/>
+            </a>
+            <a href="#" class="ico">
+              <img width="48" height="48" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/>
+            </a>
+            <a href="#" class="ico">
+              <img width="48" height="48" src="https://img.icons8.com/color/48/facebook-new.png" alt="facebook-new"/>
+            </a>
+          </div>
+          <div id="btn">
+            <a href="/feed"><button class="msg">Feed</button></a>
+            <a href="/logout"><button class="msg">Logout</button></a>
+          </div>
+          <div id="l-c-s">
+            <div class="num">
+              <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/facebook-like--v1.png" alt="facebook-like--v1"/>
+              <span>35k</span>
+            </div>
+            <div class="num dvr"></div>
+            <div class="num">
+              <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/48/speech-bubble--v1.png" alt="speech-bubble--v1"/>
+              <span>20k</span>
+            </div>
+            <div class="num dvr"></div>
+            <div class="num">
+              <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/share.png" alt="share"/>
+              <span>15k</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+    <form class="uploadform" action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="file">
+      <input type="text" name="title">
+      <input type="submit" value="Upload Now">
+    </form>
+    <div class="posts">
+        <% user.posts.forEach(function(post){ %>
+          <div class="post">    
+          <div class="card">
+            <img src="/images/uploads/<%= post.image %>" alt="Image" class="card-media" />
+            <div class="card-details">
+              <h2 class="card-head"><%= post.posttext %></h2>
+            </div>
+          </div>
+        </div>   
+       <% }) %>
+    </div>
+</body>
+</html>
